@@ -46,10 +46,8 @@ function getWinningChoice(choiceA, choiceB) {
 
 function playRound() {
     let humanChoice = getHumanChoice();
-    console.log(`You: ${humanChoice}`);
-
     let computerChoice = getComputerChoice();
-    console.log(`CPU: ${computerChoice}`);
+    console.log(`You: ${humanChoice}\nCPU: ${computerChoice}`);
 
     if (humanChoice == computerChoice) {
         console.log("It's a tie.");
