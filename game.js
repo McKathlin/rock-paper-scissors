@@ -34,14 +34,15 @@ function getComputerChoice() {
 }
 
 function getWinningChoice(choiceA, choiceB) {
+    let winA;
     if (choiceA == "rock") {
-        return choiceB == "paper" ? "paper" : "rock";
+        winA = choiceB != "paper";
     } else if (choiceA == "paper") {
-        return choiceB == "scissors" ? "scissors" : "paper";
-    } else {
-        // Choice A is scissors.
-        return choiceB == "rock" ? "rock" : "scissors";
+        winA = choiceB != "scissors";
+    } else { // Choice A is scissors
+        winA = choiceB != "rock";
     }
+    return winA ? choiceA : choiceB;
 }
 
 function playRound() {
