@@ -1,6 +1,9 @@
 //=============================================================================
-// Global Variables
+// Globals
 //=============================================================================
+
+const TOOL_CHOICES = ["rock", "paper", "scissors"];
+const POINTS_TO_WIN = 5;
 
 let humanScore = 0;
 let computerScore = 0;
@@ -27,24 +30,28 @@ document.querySelector("button#scissors").addEventListener("click", (e) => {
 
 const humanScoreNode = document.querySelector("#human-score");
 const computerScoreNode = document.querySelector("#cpu-score");
-const moveLogNode = document.querySelector("#move-log");
-
 function updateScore() {
     humanScoreNode.innerText = humanScore;
     computerScoreNode.innerText = computerScore;
 }
 
+const moveLogNode = document.querySelector("#move-log");
 function logText(text) {
     const para = document.createElement("p");
     para.innerText = text;
     moveLogNode.appendChild(para);
 }
 
+const moveSectionNode = document.querySelector("#move-choice");
+const winSectionNode = document.querySelector("#win-announce");
+const winnerNameNode = document.querySelector("#winner-name");
+function announceWinner() {
+    winnerNameNode.innerText = computerScore > humanScore ? "CPU" : "You";
+}
+
 //=============================================================================
 // Game logic
 //=============================================================================
-
-const TOOL_CHOICES = ["rock", "paper", "scissors"];
 
 function getComputerChoice() {
     const choiceIndex = Math.floor(Math.random() * TOOL_CHOICES.length);
@@ -86,4 +93,7 @@ function playRound(humanChoice) {
     // Display the outcome.
     logText(`${pickText} ${outcomeText}`);
     updateScore();
+    if (Math.max(humanScore, computerScore) >= POINTS_TO_WIN) {
+        announceWinner();
+    }
 }
