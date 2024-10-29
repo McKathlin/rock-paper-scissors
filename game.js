@@ -25,12 +25,19 @@ document.querySelector("button#scissors").addEventListener("click", (e) => {
 // Output
 //=============================================================================
 
-const moveLog = document.querySelector("#move-log");
+const humanScoreNode = document.querySelector("#human-score");
+const computerScoreNode = document.querySelector("#cpu-score");
+const moveLogNode = document.querySelector("#move-log");
+
+function updateScore() {
+    humanScoreNode.innerText = humanScore;
+    computerScoreNode.innerText = computerScore;
+}
 
 function logText(text) {
     const para = document.createElement("p");
     para.innerText = text;
-    moveLog.appendChild(para);
+    moveLogNode.appendChild(para);
 }
 
 //=============================================================================
@@ -72,6 +79,5 @@ function playRound(humanChoice) {
             computerScore++;
         }
     }
-
-    logText(`You: ${humanScore} CPU: ${computerScore}`);
+    updateScore();
 }
