@@ -64,20 +64,26 @@ function getWinningChoice(choiceA, choiceB) {
 }
 
 function playRound(humanChoice) {
+    // Record the picks.
     let computerChoice = getComputerChoice();
-    logText(`You pick ${humanChoice}; CPU picks ${computerChoice}.`);
+    let pickText = `You pick ${humanChoice}; CPU picks ${computerChoice}.`;
 
+    // Calculate the outcome.
+    let outcomeText;
     if (humanChoice == computerChoice) {
-        logText("This round is a tie.");
+        outcomeText = "This round is a tie.";
     } else {
         let winningChoice = getWinningChoice(humanChoice, computerChoice);
         if (winningChoice == humanChoice) {
-            logText("You win this round.");
+            outcomeText = "You win this round.";
             humanScore++;
         } else {
-            logText("CPU wins this round.");
+            outcomeText = "CPU wins this round.";
             computerScore++;
         }
     }
+
+    // Display the outcome.
+    logText(`${pickText} ${outcomeText}`);
     updateScore();
 }
