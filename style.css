@@ -6,36 +6,94 @@
     box-sizing: border-box;
 }
 
+body {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
 .hidden {
     display: none !important;
 }
 
+/* Header */
+
+header {
+    padding: 0.5rem;
+    text-align: center;
+}
+
+header h1 {
+    text-transform: uppercase;
+}
+
 /* Scoreboard */
+
+#scoreboard {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+}
+
+.score-card {
+    font-family: 'Courier New', Courier, monospace;
+    color: #fff;
+    background-color: #222;
+    border: 0.3rem solid #444;
+    width: 10rem;
+    height: 10rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 0.5rem;
+}
+
+.score-card > span {
+    display: block;
+}
+
+.score-card > .player {
+    font-weight: bold;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+}
+
+.score-card .score {
+    font-weight: bold;
+    font-size: 5.5rem;
+}
 
 /* Button Holders */
 
 #move-choice, #win-announce {
     display: flex;
+    height: 20rem;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 1em;
-    padding: 1em;
+    gap: 1rem;
+    padding: 1rem;
 }
 
 #move-choice {
     background-color: #ccc;
 }
 
+#win-announce {
+    background-color: #aaa;
+}
+
 .button-set {
-    height: 10em;
-    flex: 2;
-    height: 80%;
+    height: 12rem;
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    gap: 1em;
+    gap: 1rem;
+    padding: 5px;
 }
 
 .button-set button {
@@ -44,8 +102,8 @@
     border: 2px solid #000;
     border-radius: 7px;
     margin: 0;
-    padding: 0.5em;
-    opacity: 70%;
+    padding: 0.5rem;
+    opacity: 80%;
 }
 
 .button-set button:hover {
@@ -59,8 +117,34 @@
 
 #move-choice button > img {
     display: block;
-    height: 10em;
+    height: 10rem;
     border-radius: 5px;
 }
 
+#win-announce button {
+    font-size: 200%;
+    height: 4rem;
+    width: 15rem;
+}
+
 /* Move Log */
+
+#move-log {
+    margin: auto;
+    max-width: 32rem;
+    padding: 1rem;
+}
+
+#move-log > p {
+    margin-bottom: 0.5rem;
+}
+
+/* Footer */
+
+footer {
+    text-align: center;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    padding: 0.5rem;
+}
