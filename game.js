@@ -14,7 +14,7 @@ let computerScore = 0;
 
 document.addEventListener("DOMContentLoaded", (e) => {
     resetGame();
-})
+});
 
 //=============================================================================
 // Input
@@ -39,15 +39,23 @@ document.querySelector("button#restart").addEventListener("click", (e) => {
 //=============================================================================
 // Output
 //=============================================================================
+// Scoreboard
+//-----------------------------------------------------------------------------
 
 const humanScoreNode = document.querySelector("#human-score");
 const computerScoreNode = document.querySelector("#cpu-score");
+
 function updateScore() {
     humanScoreNode.innerText = humanScore;
     computerScoreNode.innerText = computerScore;
 }
 
+//-----------------------------------------------------------------------------
+// Log
+//-----------------------------------------------------------------------------
+
 const moveLogNode = document.querySelector("#move-log");
+
 function resetLog() {
     const winConditionPara = document.createElement("p");
     winConditionPara.innerText =
@@ -61,20 +69,32 @@ function logText(text) {
     moveLogNode.appendChild(para);
 }
 
+//-----------------------------------------------------------------------------
+// Play and Win Displays
+//-----------------------------------------------------------------------------
+
 const moveSectionNode = document.querySelector("#move-choice");
 const winSectionNode = document.querySelector("#win-announce");
 const winnerNameNode = document.querySelector("#winner-name");
+
 function showPlayInputs() {
+    // Show play section
     moveSectionNode.classList.remove("hidden");
+
+    // Hide win section
     winSectionNode.classList.add("hidden");
+    winSectionNode.classList.remove("cpu-win");
+    winSectionNode.classList.remove("human-win");
 }
 
 function announceWinner() {
     let winText;
     if (computerScore > humanScore) {
         winText = "CPU wins the match!";
+        winSectionNode.classList.add("cpu-win");
     } else {
         winText = "You win the match!"
+        winSectionNode.classList.add("human-win");
     }
     winnerNameNode.innerText = winText;
     logText(winText);
