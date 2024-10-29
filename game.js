@@ -1,4 +1,14 @@
 //=============================================================================
+// Globals
+//=============================================================================
+const moveLog = document.querySelector("#move-log");
+
+const TOOL_CHOICES = ["rock", "paper", "scissors"];
+
+let humanScore = 0;
+let computerScore = 0;
+
+//=============================================================================
 // Event handling
 //=============================================================================
 
@@ -15,12 +25,8 @@ document.querySelector("button#scissors").addEventListener("click", (e) => {
 });
 
 //=============================================================================
-// Game logic
+// Game logic functions
 //=============================================================================
-const TOOL_CHOICES = ["rock", "paper", "scissors"];
-
-let humanScore = 0;
-let computerScore = 0;
 
 function getComputerChoice() {
     const choiceIndex = Math.floor(Math.random() * TOOL_CHOICES.length);
@@ -41,20 +47,26 @@ function getWinningChoice(choiceA, choiceB) {
 
 function playRound(humanChoice) {
     let computerChoice = getComputerChoice();
-    console.log(`You: ${humanChoice}\nCPU: ${computerChoice}`);
+    logText(`You pick ${humanChoice}; CPU picks ${computerChoice}.`);
 
     if (humanChoice == computerChoice) {
-        console.log("It's a tie.");
+        logText("This round is a tie.");
     } else {
         let winningChoice = getWinningChoice(humanChoice, computerChoice);
         if (winningChoice == humanChoice) {
-            console.log("You win!");
+            logText("You win this round.");
             humanScore++;
         } else {
-            console.log("CPU wins.");
+            logText("CPU wins this round.");
             computerScore++;
         }
     }
 
-    console.log(`You: ${humanScore}\tCPU: ${computerScore}`);
+    logText(`You: ${humanScore} CPU: ${computerScore}`);
+}
+
+function logText(text) {
+    const para = document.createElement("p");
+    para.innerText = text;
+    moveLog.appendChild(para);
 }
