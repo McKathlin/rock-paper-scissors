@@ -4,13 +4,30 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rock Paper Scissors</title>
+    <script defer src="game.js"></script>
 </head>
 <body>
     <h1>Rock Paper Scissors</h1>
-    <p>
-        This is a console game. To begin, press <code>F12</code>
-        and switch to the Console tab in your browser's debugging tools.
-    </p>
-    <script src="game.js"></script>
+    <div id="scoreboard">
+        <div class="score-card">
+            <span class="player">You</span>
+            <span id="human-score" class="score">0</span>
+        </div>
+        <div class="score-card">
+            <span class="player">CPU</span>
+            <span id="cpu-score" class="score">0</span>
+        </div>
+    </div>
+    <div id="move-choice">
+        <h2>Pick your next move:</h2>
+        <div class="button-set">
+            <button id="rock">Rock</button>
+            <button id="paper">Paper</button>
+            <button id="scissors">Scissors</button>
+        </div>
+    </div>
+    <div id="move-log">
+        <!--Moves will be added here.-->
+    </div>
 </body>
 </html>

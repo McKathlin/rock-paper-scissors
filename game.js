@@ -65,16 +65,3 @@ function playRound() {
 
     console.log(`You: ${humanScore}\tCPU: ${computerScore}`);
 }
-
-for (let roundNumber = 1; roundNumber <= ROUNDS_PER_MATCH; roundNumber++) {
-    console.log(`Round ${roundNumber}`);
-    playRound();
-}
-
-if (humanScore > computerScore) {
-    console.log("You win the match!");
-} else if (humanScore < computerScore) {
-    console.log("Sorry, you lose the match.");
-} else {
-    console.log("This match is a tie.");
-}
