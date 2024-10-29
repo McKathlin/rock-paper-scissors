@@ -1,30 +1,26 @@
+//=============================================================================
+// Event handling
+//=============================================================================
+
+document.querySelector("button#rock").addEventListener("click", (e) => {
+    playRound("rock");
+});
+
+document.querySelector("button#paper").addEventListener("click", (e) => {
+    playRound("paper");
+});
+
+document.querySelector("button#scissors").addEventListener("click", (e) => {
+    playRound("scissors");
+});
+
+//=============================================================================
+// Game logic
+//=============================================================================
 const TOOL_CHOICES = ["rock", "paper", "scissors"];
 
 let humanScore = 0;
 let computerScore = 0;
-
-function getHumanChoice() {
-    const response = prompt("Rock, paper, or scissors?");
-    let choice;
-    switch(response.toLowerCase()) {
-        case "rock":
-        case "r":
-            choice = "rock";
-            break;
-        case "paper":
-        case "p":
-            choice = "paper";
-            break;
-        case "scissors":
-        case "s":
-            choice = "scissors";
-            break;
-        default:
-            console.log("We don't understand your selection, so we'll choose for you.");
-            choice = getComputerChoice();
-    }
-    return choice;
-}
 
 function getComputerChoice() {
     const choiceIndex = Math.floor(Math.random() * TOOL_CHOICES.length);
@@ -43,8 +39,7 @@ function getWinningChoice(choiceA, choiceB) {
     return winA ? choiceA : choiceB;
 }
 
-function playRound() {
-    let humanChoice = getHumanChoice();
+function playRound(humanChoice) {
     let computerChoice = getComputerChoice();
     console.log(`You: ${humanChoice}\nCPU: ${computerChoice}`);
 
