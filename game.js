@@ -1,6 +1,4 @@
-
 const TOOL_CHOICES = ["rock", "paper", "scissors"];
-const ROUNDS_PER_MATCH = 5;
 
 let humanScore = 0;
 let computerScore = 0;
