@@ -8,32 +8,39 @@
     <script defer src="game.js"></script>
 </head>
 <body>
-    <h1>Rock Paper Scissors</h1>
-    <div id="scoreboard">
-        <div class="score-card">
-            <span class="player">You</span>
-            <span id="human-score" class="score">0</span>
+    <header>
+        <h1>Rock Paper Scissors</h1>
+    </header>
+    <main>
+        <div id="scoreboard">
+            <div class="score-card">
+                <span class="player">You</span>
+                <span id="human-score" class="score">0</span>
+            </div>
+            <div class="score-card">
+                <span class="player">CPU</span>
+                <span id="cpu-score" class="score">0</span>
+            </div>
         </div>
-        <div class="score-card">
-            <span class="player">CPU</span>
-            <span id="cpu-score" class="score">0</span>
+        <div id="move-choice" class="hidden">
+            <h2>Pick your next move:</h2>
+            <div class="button-set">
+                <button id="rock"><img src="img/rock.jpg" alt="rock"></button>
+                <button id="paper"><img src="img/paper.jpg" alt="paper"></button>
+                <button id="scissors"><img src="img/scissors.jpg" alt="scissors"></button>
+            </div>
         </div>
-    </div>
-    <div id="move-choice" class="hidden">
-        <h2>Pick your next move:</h2>
-        <div class="button-set">
-            <button id="rock"><img src="img/rock.jpg" alt="rock"></button>
-            <button id="paper"><img src="img/paper.jpg" alt="paper"></button>
-            <button id="scissors"><img src="img/scissors.jpg" alt="scissors"></button>
+        <div id="win-announce" class="hidden">
+            <h2 id="winner-name">No winner yet.</h2>
+            <div class="button-set">
+                <button id="restart">Restart Game</button>
+            </div>
         </div>
-    </div>
-    <div id="win-announce" class="hidden">
-        <h2 id="winner-name">No winner yet.</h2>
-        <div class="button-set"></div>
-            <button id="restart">Restart Game</button>
+        <div id="move-log">
         </div>
-    </div>
-    <div id="move-log">
-    </div>
+    </main>
+    <footer>
+        Made by <a href="https://github.com/McKathlin/">McKathlin</a>
+    </footer>
 </body>
 </html>
