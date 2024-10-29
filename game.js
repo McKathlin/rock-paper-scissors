@@ -34,7 +34,7 @@ document.querySelector("button#scissors").addEventListener("click", (e) => {
 
 document.querySelector("button#restart").addEventListener("click", (e) => {
     resetGame();
-})
+});
 
 //=============================================================================
 // Output
@@ -64,6 +64,11 @@ function logText(text) {
 const moveSectionNode = document.querySelector("#move-choice");
 const winSectionNode = document.querySelector("#win-announce");
 const winnerNameNode = document.querySelector("#winner-name");
+function showPlayInputs() {
+    moveSectionNode.classList.remove("hidden");
+    winSectionNode.classList.add("hidden");
+}
+
 function announceWinner() {
     let winText;
     if (computerScore > humanScore) {
@@ -73,6 +78,10 @@ function announceWinner() {
     }
     winnerNameNode.innerText = winText;
     logText(winText);
+
+    // Show the win section instead of the move section.
+    moveSectionNode.classList.add("hidden");
+    winSectionNode.classList.remove("hidden");
 }
 
 //=============================================================================
@@ -129,5 +138,6 @@ function resetGame() {
     computerScore = 0;
     updateScore();
     resetLog();
+    showPlayInputs();
 }
 

@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rock Paper Scissors</title>
+    <link rel="stylesheet" href="style.css">
     <script defer src="game.js"></script>
 </head>
 <body>
@@ -18,7 +19,7 @@
             <span id="cpu-score" class="score">0</span>
         </div>
     </div>
-    <div id="move-choice">
+    <div id="move-choice" class="hidden">
         <h2>Pick your next move:</h2>
         <div class="button-set">
             <button id="rock">Rock</button>
@@ -26,9 +27,11 @@
             <button id="scissors">Scissors</button>
         </div>
     </div>
-    <div id="win-announce">
-        <p id="winner-name">No winner yet.</p>
-        <button id="restart">Restart Game</button>
+    <div id="win-announce" class="hidden">
+        <h2 id="winner-name">No winner yet.</h2>
+        <div class="button-set"></div>
+            <button id="restart">Restart Game</button>
+        </div>
     </div>
     <div id="move-log">
     </div>
