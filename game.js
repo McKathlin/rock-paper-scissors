@@ -1,15 +1,12 @@
 //=============================================================================
-// Globals
+// Global Variables
 //=============================================================================
-const moveLog = document.querySelector("#move-log");
-
-const TOOL_CHOICES = ["rock", "paper", "scissors"];
 
 let humanScore = 0;
 let computerScore = 0;
 
 //=============================================================================
-// Event handling
+// Input
 //=============================================================================
 
 document.querySelector("button#rock").addEventListener("click", (e) => {
@@ -25,8 +22,22 @@ document.querySelector("button#scissors").addEventListener("click", (e) => {
 });
 
 //=============================================================================
-// Game logic functions
+// Output
 //=============================================================================
+
+const moveLog = document.querySelector("#move-log");
+
+function logText(text) {
+    const para = document.createElement("p");
+    para.innerText = text;
+    moveLog.appendChild(para);
+}
+
+//=============================================================================
+// Game logic
+//=============================================================================
+
+const TOOL_CHOICES = ["rock", "paper", "scissors"];
 
 function getComputerChoice() {
     const choiceIndex = Math.floor(Math.random() * TOOL_CHOICES.length);
@@ -63,10 +74,4 @@ function playRound(humanChoice) {
     }
 
     logText(`You: ${humanScore} CPU: ${computerScore}`);
-}
-
-function logText(text) {
-    const para = document.createElement("p");
-    para.innerText = text;
-    moveLog.appendChild(para);
 }
