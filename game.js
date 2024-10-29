@@ -9,6 +9,14 @@ let humanScore = 0;
 let computerScore = 0;
 
 //=============================================================================
+// Setup
+//=============================================================================
+
+document.addEventListener("DOMContentLoaded", (e) => {
+    resetGame();
+})
+
+//=============================================================================
 // Input
 //=============================================================================
 
@@ -24,6 +32,10 @@ document.querySelector("button#scissors").addEventListener("click", (e) => {
     playRound("scissors");
 });
 
+document.querySelector("button#restart").addEventListener("click", (e) => {
+    resetGame();
+})
+
 //=============================================================================
 // Output
 //=============================================================================
@@ -36,6 +48,13 @@ function updateScore() {
 }
 
 const moveLogNode = document.querySelector("#move-log");
+function resetLog() {
+    const winConditionPara = document.createElement("p");
+    winConditionPara.innerText =
+        `The first player to reach ${POINTS_TO_WIN} points wins.`;
+    moveLogNode.replaceChildren(winConditionPara);
+}
+
 function logText(text) {
     const para = document.createElement("p");
     para.innerText = text;
@@ -104,3 +123,11 @@ function playRound(humanChoice) {
         announceWinner();
     }
 }
+
+function resetGame() {
+    humanScore = 0;
+    computerScore = 0;
+    updateScore();
+    resetLog();
+}
+
