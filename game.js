@@ -46,7 +46,14 @@ const moveSectionNode = document.querySelector("#move-choice");
 const winSectionNode = document.querySelector("#win-announce");
 const winnerNameNode = document.querySelector("#winner-name");
 function announceWinner() {
-    winnerNameNode.innerText = computerScore > humanScore ? "CPU" : "You";
+    let winText;
+    if (computerScore > humanScore) {
+        winText = "CPU wins the match!";
+    } else {
+        winText = "You win the match!"
+    }
+    winnerNameNode.innerText = winText;
+    logText(winText);
 }
 
 //=============================================================================
